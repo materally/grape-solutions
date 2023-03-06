@@ -1,8 +1,10 @@
-import React from 'react';
+import { Container, Header } from './ui/layout';
 
 function App() {
   return (
-    <h1>Grape Solutions</h1>
+    <Container>
+      <Header />
+    </Container>
   );
 }
 
