@@ -1,6 +1,6 @@
-import { Message as SemanticMessage } from 'semantic-ui-react';
+import { Message as SemanticMessage, MessageProps } from 'semantic-ui-react';
 
-interface Props {
+interface Props extends MessageProps {
   message: string;
 }
 
