@@ -1,14 +1,14 @@
+import { ButtonProps } from 'semantic-ui-react';
 import styled from 'styled-components';
 import { colorMap } from './colorMap';
 import { ColorMap } from './model';
 
-interface Props {
+interface Props extends ButtonProps {
   theme: ColorMap;
-  children: string;
 }
 
 export const Button = ({ theme, ...props }: Props) => {
-  return <StyledButton theme={colorMap[theme]} {...props}>{props.children}</StyledButton>
+  return <StyledButton theme={colorMap[theme]} {...props}>{props.children}</StyledButton>;
 }
 
 const StyledButton = styled.button`

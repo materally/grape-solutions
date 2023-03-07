@@ -5,7 +5,7 @@ import { Title } from "./Title";
 
 export const Header = () => {
   return (
-    <Menu stackable inverted attached>
+    <Menu stackable inverted attached borderless>
 
       <Menu.Item>
         <GrapeLogo style={{ width: 'auto' }} />
