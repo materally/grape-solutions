@@ -5,6 +5,7 @@ import { GuestRouter } from './GuestRouter';
 import { PrivateRouter } from './PrivateRouter';
 import { Auth } from '../auth/Auth';
 import { NotFound } from '../../components/not-found/NotFound';
+import { List } from '../beers/List';
 
 const router = createBrowserRouter([
   {
@@ -14,18 +15,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: null,
-        children: [
-          {
-            path: '/',
-            element: null,
-          },
-          {
-            path: '/',
-            element: null,
-          },
-        ],
+        element: <List />,
       },
+      {
+        path: '/beer/:id',
+        element: null,
+      }
     ],
   },
   {

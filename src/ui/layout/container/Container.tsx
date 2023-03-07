@@ -1,6 +1,6 @@
-import { Container as SemanticContainer } from "semantic-ui-react";
+import { Container as SemanticContainer, ContainerProps } from "semantic-ui-react";
 
-interface Props {
+interface Props extends ContainerProps {
   children: JSX.Element | Array<JSX.Element>;
 }
 
