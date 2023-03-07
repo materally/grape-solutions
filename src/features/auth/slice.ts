@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loadState } from '../../utils';
+import { loadState, saveState } from '../../utils';
 
 const USERNAME_KEY = 'username';
 
@@ -10,7 +10,18 @@ const initialState = {
 const slice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {}
+  reducers: {
+    saveUser(state, action) {
+      state.username = action.payload;
+      saveState(USERNAME_KEY, action.payload);
+    },
+    logout(state) {
+      saveState(USERNAME_KEY, undefined);
+      state.username = undefined;
+    }
+  },
 });
+
+export const { saveUser, logout } = slice.actions;
 
 export default slice.reducer;
