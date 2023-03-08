@@ -67,7 +67,7 @@ export const List = () => {
         onPrev={() => handleOnPagination(PaginationType.PREVIOUS)}
         onNext={() => handleOnPagination(PaginationType.NEXT)}
         page={filters.page || 1}
-        nextButtonDisabled={!!!data?.length}
+        nextButtonDisabled={!!!data?.length || data.length < 9}
       />
     </Container>
   );
