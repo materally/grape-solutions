@@ -6,10 +6,10 @@ export const beerApi = createApi({
   reducerPath: 'beerApi',
   baseQuery: fetchBaseQuery({ baseUrl: BEER_API_URL }),
   endpoints: (builder) => ({
-    getBeers: builder.query<Array<ListItemProps>, void>({
-      query: () => '',
+    getBeers: builder.query<Array<ListItemProps>, { url: string }>({
+      query: ({ url }) => `/beers/?${url}`,
     }),
   }),
 });
 
-export const { useGetBeersQuery } = beerApi;
+export const { useGetBeersQuery, useLazyGetBeersQuery } = beerApi;
