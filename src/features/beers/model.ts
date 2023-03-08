@@ -5,6 +5,12 @@ export interface ListItemProps {
   abv: number;
 }
 
+export interface DetailProps extends ListItemProps {
+  description: string;
+  tagline: string;
+  food_pairing: Array<string>;
+}
+
 export type RequestPayload = Partial<{
   beer_name: string;
   abv_gt: number;
