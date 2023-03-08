@@ -11,3 +11,8 @@ export type RequestPayload = Partial<{
   abv_lt: number;
   page: number;
 }>;
+
+export enum PaginationType {
+  PREVIOUS = 'previous',
+  NEXT = 'next'
+}
