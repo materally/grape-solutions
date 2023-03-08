@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { Card, Grid, Loader } from "semantic-ui-react";
+import { Loader } from "semantic-ui-react";
 
 import { Container } from "../../ui/layout";
 import { useGetBeersQuery } from "./api";
-import { Filter, ListItem, Pagination } from "./components";
+import { Filter, Pagination } from "./components";
+import { ListData } from "./components/ListData";
+import { NoData } from "./components/NoData";
 import { PaginationType, RequestPayload } from "./model";
 import { generateRequestUrl } from "./utils/generateRequestUrl";
 
@@ -21,7 +23,7 @@ export const List = () => {
   const navigate = useNavigate();
   const [filters, setFilters] = useState<RequestPayload>(initialFilters);
   const [request, setRequest] = useState<string>('');
-  const { data, isLoading, isFetching } = useGetBeersQuery({
+  const { data, isFetching } = useGetBeersQuery({
     url: request
   });
 
@@ -45,26 +47,22 @@ export const List = () => {
     [setFilters, filters],
   )
 
+  const handleContent = () => {
+    if (isFetching) {
+      return <Loader active size="big" />;
+    }
+
+    if (!isFetching && data?.length === 0) {
+      return <NoData />;
+    }
+
+    return <ListData data={data} />
+  }
+
   return (
     <Container>
       <Filter onFilter={handleOnFilter} filters={filters} />
-      {
-        (isLoading || isFetching) ? <Loader active size="big" /> : (
-          <Grid container padded={"vertically"}>
-            <Card.Group centered>
-              {data?.map(({ id, name, image_url, abv }) => (
-                <ListItem
-                  key={id}
-                  id={id}
-                  name={name}
-                  image_url={image_url}
-                  abv={abv}
-                />
-              ))}
-            </Card.Group>
-          </Grid>
-        )
-      }
+      {handleContent()}
       <Pagination
         onPrev={() => handleOnPagination(PaginationType.PREVIOUS)}
         onNext={() => handleOnPagination(PaginationType.NEXT)}
