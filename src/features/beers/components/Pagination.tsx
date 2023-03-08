@@ -7,9 +7,10 @@ interface Props {
   onPrev: () => void;
   onNext: () => void;
   page: number;
+  nextButtonDisabled: boolean;
 }
 
-export const Pagination = ({ page, onPrev, onNext }: Props) => {
+export const Pagination = ({ page, onPrev, onNext, nextButtonDisabled }: Props) => {
   const prevButtonDisabled = page === 1;
 
   return (
@@ -24,7 +25,7 @@ export const Pagination = ({ page, onPrev, onNext }: Props) => {
             Previous
           </Button>
 
-          <Button icon labelPosition='right' onClick={onNext}>
+          <Button icon labelPosition='right' onClick={onNext} disabled={nextButtonDisabled}>
             Next
             <Icon name={'arrow right'} />
           </Button>
