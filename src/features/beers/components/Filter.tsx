@@ -14,8 +14,8 @@ interface Props {
 
 export const Filter = ({ onFilter, filters }: Props) => {
   const [beer_name, setBeerName] = useState(filters.beer_name || '');
-  const [abv_gt, setAbvGt] = useState(filters.abv_gt);
-  const [abv_lt, setAbvLt] = useState(filters.abv_lt);
+  const [abv_gt, setAbvGt] = useState(filters.abv_gt || 0);
+  const [abv_lt, setAbvLt] = useState(filters.abv_lt || 100);
 
   const handleOnFilter = () => onFilter({ beer_name, abv_gt, abv_lt })
 
