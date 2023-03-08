@@ -3,12 +3,14 @@ import { RequestPayload } from "../model";
 const ignoreNullishValues = ([, value]: [unknown, unknown]) =>
   !(value === null || value === undefined || value === 0 || value === '');
 
+const PER_PAGE = "10";
+
 export const generateRequestUrl = ({ abv_gt, abv_lt, beer_name, page }: RequestPayload) => {
   const filters = { beer_name, abv_gt, abv_lt };
   const pagination = { page };
   const params = new URLSearchParams();
 
-  params.set("per_page", "2");
+  params.set("per_page", PER_PAGE);
 
   if (filters) {
     Object.entries(filters)

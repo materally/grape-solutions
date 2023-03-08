@@ -40,7 +40,7 @@ export const List = () => {
       {
         (isLoading || isFetching) ? <Loader active size="big" /> : (
           <Grid container padded={"vertically"}>
-            <Card.Group centered itemsPerRow={3}>
+            <Card.Group centered>
               {data?.map(({ id, name, image_url, abv }) => <ListItem key={id} id={id} name={name} image_url={image_url} abv={abv} />)}
             </Card.Group>
           </Grid>
