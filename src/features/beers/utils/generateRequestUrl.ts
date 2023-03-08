@@ -3,7 +3,7 @@ import { RequestPayload } from "../model";
 const ignoreNullishValues = ([, value]: [unknown, unknown]) =>
   !(value === null || value === undefined || value === 0 || value === '');
 
-const PER_PAGE = "10";
+const PER_PAGE = "9";
 
 export const generateRequestUrl = ({ abv_gt, abv_lt, beer_name, page }: RequestPayload) => {
   const filters = { beer_name, abv_gt, abv_lt };

@@ -40,7 +40,7 @@ const PaginationWrapper = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
-  padding-top: 20px;
+  padding: 20px 0px;
 `;
 
 const PageCount = styled.span`
