@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { NotFound } from "../../components/not-found/NotFound";
 import { Container } from "../../ui/layout";
 import { useGetDetailsQuery } from "./api";
+import { BackButton } from "./components";
 
 export const Details = () => {
   const { beerId = "1" } = useParams();
@@ -23,7 +24,8 @@ export const Details = () => {
 
   return (
     <Container fluid={false}>
-      <Title>{beer.name}</Title>
+      <BackButton />
+      <h1>{beer.name}</h1>
       <Tagline>{beer.tagline}</Tagline>
       <Grid columns={"equal"}>
         <Grid.Column width={3}>
@@ -42,10 +44,6 @@ export const Details = () => {
     </Container>
   );
 }
-
-const Title = styled.h1`
-  padding-top: 20px;
-`;
 
 const Tagline = styled.h3`
   margin-top: 0px;
