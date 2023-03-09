@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
-import { Grid, Loader, Image } from "semantic-ui-react";
+import { Grid, Image } from "semantic-ui-react";
 import styled from "styled-components";
 
-import { NotFound } from "../../components/not-found/NotFound";
+import { NotFound } from "../../components/not-found";
 import { Container } from "../../ui/layout";
+import { Loader } from "../../ui/loader";
 import { useGetDetailsQuery } from "./api";
 import { BackButton } from "./components";
 
@@ -27,14 +28,18 @@ export const Details = () => {
       <BackButton />
       <h1>{beer.name}</h1>
       <Tagline>{beer.tagline}</Tagline>
+
       <Grid columns={"equal"}>
         <Grid.Column width={3}>
           <Image src={beer.image_url} size="small" centered />
         </Grid.Column>
+
         <Grid.Column >
           <h4>Description</h4>
           <p>{beer.description}</p>
+
           <h4><b>ABV:</b> {beer.abv}%</h4>
+
           <h4>Food pairings:</h4>
           <FoodPairings>
             {beer.food_pairing.map((food, idx) => <li key={idx}>{food}</li>)}

@@ -1,7 +1,8 @@
 import { Card, Image } from "semantic-ui-react";
 import styled from "styled-components";
-import { ListItemProps } from "../model";
 import { useNavigate } from "react-router-dom";
+
+import { ListItemProps } from "../model";
 
 export const ListItem = ({ id, name, image_url, abv }: ListItemProps) => {
   const navigate = useNavigate();

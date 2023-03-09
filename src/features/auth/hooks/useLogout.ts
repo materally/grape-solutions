@@ -5,4 +5,4 @@ export const useLogout = () => {
   const dispatch = useDispatch();
 
   return () => dispatch(logout());
-}
+};

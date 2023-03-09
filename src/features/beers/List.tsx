@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { Loader } from "semantic-ui-react";
+import { ServerError } from "../../components/server-error";
 
 import { Container } from "../../ui/layout";
+import { Loader } from "../../ui/loader";
 import { useGetBeersQuery } from "./api";
 import { Filter, Pagination } from "./components";
 import { ListData } from "./components/ListData";
@@ -23,7 +24,7 @@ export const List = () => {
   const navigate = useNavigate();
   const [filters, setFilters] = useState<RequestPayload>(initialFilters);
   const [request, setRequest] = useState<string>('');
-  const { data, isFetching } = useGetBeersQuery({
+  const { data, isFetching, isError } = useGetBeersQuery({
     url: request
   });
 
@@ -38,8 +39,8 @@ export const List = () => {
   const handleOnPagination = useCallback(
     (direction: PaginationType) => {
       const { page = 1 } = filters;
-      const prevPage = (page) && Number(page) - 1;
-      const nextPage = (page) && Number(page) + 1;
+      const prevPage = page && Number(page) - 1;
+      const nextPage = page && Number(page) + 1;
       const finalPage = direction === PaginationType.PREVIOUS ? prevPage : nextPage;
 
       return setFilters(prevFilters => ({ ...prevFilters, page: finalPage }))
@@ -54,6 +55,10 @@ export const List = () => {
 
     if (!isFetching && data?.length === 0) {
       return <NoData />;
+    }
+
+    if (isError) {
+      return <ServerError />
     }
 
     return <ListData data={data} />
