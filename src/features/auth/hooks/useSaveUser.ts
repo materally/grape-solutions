@@ -5,4 +5,4 @@ export const useSaveUser = () => {
   const dispatch = useDispatch();
 
   return (username: string) => dispatch(saveUser(username));
-}
+};

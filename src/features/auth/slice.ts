@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import { loadState, saveState } from '../../utils';
 
 const USERNAME_KEY = 'username';

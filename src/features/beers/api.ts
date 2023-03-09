@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
 import { BEER_API_URL } from '../../app/consts';
 import { ListItemProps, DetailProps } from './model';
 
