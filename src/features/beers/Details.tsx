@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
-import { Grid, Loader, Image } from "semantic-ui-react";
+import { Grid, Image } from "semantic-ui-react";
 import styled from "styled-components";
 
 import { NotFound } from "../../components/not-found";
 import { Container } from "../../ui/layout";
+import { Loader } from "../../ui/loader";
 import { useGetDetailsQuery } from "./api";
 import { BackButton } from "./components";
 

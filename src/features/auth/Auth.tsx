@@ -1,6 +1,7 @@
 import { ChangeEvent, useCallback, useState } from "react";
-import { Form, Grid, Header, Loader } from "semantic-ui-react";
+import { Form, Grid, Header } from "semantic-ui-react";
 
+import { Loader } from "../../ui/loader";
 import { Button } from "../../ui/button";
 import { ColorMap } from "../../ui/button/model";
 import { Message } from "../../ui/message";

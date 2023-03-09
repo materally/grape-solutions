@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { Loader } from "semantic-ui-react";
 
 import { Container } from "../../ui/layout";
+import { Loader } from "../../ui/loader";
 import { useGetBeersQuery } from "./api";
 import { Filter, Pagination } from "./components";
 import { ListData } from "./components/ListData";
