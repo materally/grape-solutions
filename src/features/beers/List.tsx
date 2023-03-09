@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { ServerError } from "../../components/server-error";
 
 import { Container } from "../../ui/layout";
 import { Loader } from "../../ui/loader";
@@ -23,7 +24,7 @@ export const List = () => {
   const navigate = useNavigate();
   const [filters, setFilters] = useState<RequestPayload>(initialFilters);
   const [request, setRequest] = useState<string>('');
-  const { data, isFetching } = useGetBeersQuery({
+  const { data, isFetching, isError } = useGetBeersQuery({
     url: request
   });
 
@@ -54,6 +55,10 @@ export const List = () => {
 
     if (!isFetching && data?.length === 0) {
       return <NoData />;
+    }
+
+    if (isError) {
+      return <ServerError />
     }
 
     return <ListData data={data} />

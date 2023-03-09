@@ -49,6 +49,7 @@ export const Auth = () => {
 
     } catch (error) {
       console.error(error);
+      setErrorMessage('Internal Server Error');
     }
   };
 
