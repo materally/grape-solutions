@@ -5,7 +5,7 @@ import { Button } from "../../ui/button";
 import { ColorMap } from "../../ui/button/model";
 import { Message } from "../../ui/message";
 import { useLazyGetAuthStateQuery } from './api';
-import { Response } from "./model";
+import { AuthResponse } from "./model";
 import { useSaveUser } from "./";
 
 const MAX_LENGTH = 16;
@@ -39,7 +39,7 @@ export const Auth = () => {
     try {
       const data = await login().unwrap();
 
-      if (data === Response.NO) {
+      if (data === AuthResponse.NO) {
         setErrorMessage('Bad credentials!');
         return;
       }

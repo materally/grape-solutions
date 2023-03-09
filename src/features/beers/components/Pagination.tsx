@@ -19,7 +19,6 @@ export const Pagination = ({ page, onPrev, onNext, nextButtonDisabled }: Props) 
         <PageCount>Page: {page}</PageCount>
 
         <Button.Group>
-
           <Button icon labelPosition='left' onClick={onPrev} disabled={prevButtonDisabled}>
             <Icon name={'arrow left'} />
             Previous
@@ -29,7 +28,6 @@ export const Pagination = ({ page, onPrev, onNext, nextButtonDisabled }: Props) 
             Next
             <Icon name={'arrow right'} />
           </Button>
-
         </Button.Group>
       </PaginationWrapper>
     </Container>

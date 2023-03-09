@@ -22,4 +22,4 @@ export const ListData = ({ data }: Props) => {
       </Card.Group>
     </Grid>
   )
-}
+};

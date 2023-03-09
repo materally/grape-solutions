@@ -67,7 +67,6 @@ export const Filter = ({ onFilter, filters }: Props) => {
           </Button>
         </RightFilterWrapper>
       </FilterWrapper>
-
     </Container>
   );
 };

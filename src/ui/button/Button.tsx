@@ -1,5 +1,6 @@
 import { ButtonProps } from 'semantic-ui-react';
 import styled from 'styled-components';
+
 import { colorMap } from './colorMap';
 import { ColorMap } from './model';
 

@@ -38,8 +38,8 @@ export const List = () => {
   const handleOnPagination = useCallback(
     (direction: PaginationType) => {
       const { page = 1 } = filters;
-      const prevPage = (page) && Number(page) - 1;
-      const nextPage = (page) && Number(page) + 1;
+      const prevPage = page && Number(page) - 1;
+      const nextPage = page && Number(page) + 1;
       const finalPage = direction === PaginationType.PREVIOUS ? prevPage : nextPage;
 
       return setFilters(prevFilters => ({ ...prevFilters, page: finalPage }))

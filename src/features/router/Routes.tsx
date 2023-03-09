@@ -4,7 +4,7 @@ import { AUTH_PAGE_PATH } from '../../app/consts';
 import { GuestRouter } from './GuestRouter';
 import { PrivateRouter } from './PrivateRouter';
 import { Auth } from '../auth/Auth';
-import { NotFound } from '../../components/not-found/NotFound';
+import { NotFound } from '../../components/not-found';
 import { List, Details } from '../beers';
 
 const router = createBrowserRouter([
